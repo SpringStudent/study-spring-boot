@@ -2,7 +2,6 @@ package ning.zhou.study.springboot.studyspringboot;
 
 import ning.zhou.study.springboot.studyspringboot.dao.UserDao2;
 import ning.zhou.study.springboot.studyspringboot.domain.User;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,22 +10,26 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author 周宁
- * @Date 2019-05-20 19:42
+ * @Date 2019-05-21 9:11
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class JpaTest {
+public class CacheTest {
 
     @Autowired
     private UserDao2 userDao2;
-
     @Test
-    public void test() {
-        Assert.assertEquals(3, userDao2.findAll().size());
-        Assert.assertEquals("wang", userDao2.findByName("wang").getName());
-        Assert.assertEquals("wang", userDao2.findUser("wang").getName());
-        Assert.assertNull(userDao2.findByNameAndAge("wag", 22));
+    public void testCache() {
+        User u1 = userDao2.findByName("cheng");
+        System.out.println("第一次查询：" + u1);
+
+        User u2 = userDao2.findByName("cheng");
+        System.out.println("第二次查询：" + u2);
+
+        u2.setAge(20);
+        userDao2.save(u2);
+
+        User u3 =userDao2.findByName("cheng");
+        System.out.println("第三次查询："+u3);
     }
-
-
 }
