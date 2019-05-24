@@ -1,9 +1,7 @@
 package ning.zhou.study.springboot.studyspringboot;
 
-import com.gysoft.jdbc.bean.Criteria;
 import ning.zhou.study.springboot.studyspringboot.dao.UserDao;
 import ning.zhou.study.springboot.studyspringboot.domain.User;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
