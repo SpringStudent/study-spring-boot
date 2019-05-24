@@ -7,11 +7,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
 /**
  * @author 周宁
  * @Date 2019-05-24 11:28
@@ -19,9 +14,6 @@ import java.io.IOException;
 @Component
 @Aspect
 public class RateLimitAspect {
-
-    @Resource
-    private HttpServletResponse response;
 
     private RateLimiter rateLimiter = RateLimiter.create(2.0);
 
