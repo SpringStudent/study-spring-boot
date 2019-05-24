@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserDao userDao;
+
     @Override
     public void create(String name, Integer age)throws Exception {
         userDao.insertWithSql(new SQL().insert(User::getName,User::getAge).values(name,age));

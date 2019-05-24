@@ -5,6 +5,7 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -13,7 +14,7 @@ import org.springframework.data.repository.query.Param;
  * @Date 2019-05-20 19:40
  */
 @CacheConfig(cacheNames = "users")
-public interface UserDao2 extends JpaRepository<User,Long> {
+public interface UserDao2 extends JpaRepository<User,Long>,JpaSpecificationExecutor<User> {
     @Cacheable(key = "#p0")
     User findByName(String name);
 
@@ -22,4 +23,5 @@ public interface UserDao2 extends JpaRepository<User,Long> {
     User findUser(@Param("name") String name);
     @CachePut(key = "#p0.name")
     User save(User user);
+
 }
