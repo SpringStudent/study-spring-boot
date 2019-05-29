@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.sql.DataSource;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 @SpringBootApplication
 @EnableScheduling
 @EnableCaching
+@EnableAsync
 public class StudySpringBootApplication {
 
     public static void main(String[] args) {

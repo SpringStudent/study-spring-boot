@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  * @author 周宁
  * @Date 2019-05-24 15:28
  */
-@Configuration
+//@Configuration
 public class CasConfig {
 
     @Value("${cas.server.url.prefix}")

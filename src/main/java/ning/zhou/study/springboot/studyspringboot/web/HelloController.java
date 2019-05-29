@@ -2,9 +2,8 @@ package ning.zhou.study.springboot.studyspringboot.web;
 
 import com.gysoft.sso.bean.GyBasicSession;
 import ning.zhou.study.springboot.studyspringboot.aspect.RateLimit;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import ning.zhou.study.springboot.studyspringboot.matrix.Matrix;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author 周宁
@@ -19,4 +18,32 @@ public class HelloController extends GyBasicSession {
         System.out.println(getUserName());
         return "hello world";
     }
+
+    @GetMapping("/myArr")
+    public String[] myArr(){
+        String[] arr = {"a","b","c"};
+        return arr;
+    }
+
+    @GetMapping("/myArr2")
+    public String[][] myArr2(){
+        String[][] arr = {{"a","b","c"},{"d","e","f"}};
+        System.out.println(arr[1][2]);
+
+        return arr;
+    }
+
+    @GetMapping("/matrix")
+    public Matrix matrix(){
+        double[][] asd = new double[][]{{1,2,3},{4,6,7}};
+        return new Matrix(asd);
+    }
+
+    @PostMapping("/matrixParam")
+    public void matrixParam(@RequestBody double[][] psd){
+        Matrix matrix = new Matrix(psd);
+        System.out.println(matrix);
+    }
+
+
 }

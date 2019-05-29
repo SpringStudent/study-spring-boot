@@ -1,4 +1,4 @@
-${AnsiColor.BRIGHT_GREEN}
+${AnsiColor.MAGENTA}
 
 ########  ####  ######      ########    ###     ######  ########     ######     ###    ########
 ##     ##  ##  ##    ##     ##         ## ##   ##    ## ##          ##    ##   ## ##      ##
@@ -8,5 +8,5 @@ ${AnsiColor.BRIGHT_GREEN}
 ##     ##  ##  ##    ##     ##       ##     ## ##    ## ##          ##    ## ##     ##    ##
 ########  ####  ######      ##       ##     ##  ######  ########     ######  ##     ##    ##
 
-${AnsiColor.BRIGHT_RED}
+${AnsiColor.BLACK}
 Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}
