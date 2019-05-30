@@ -1,5 +1,7 @@
 package ning.zhou.study.springboot.studyspringboot.domain;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,13 +21,17 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JacksonXmlRootElement(localName = "User")
 public class User implements Serializable {
     @javax.persistence.Id
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @JacksonXmlProperty(localName = "id")
     private Long id;
     @Column(nullable = false)
+    @JacksonXmlProperty(localName = "name")
     private String name;
     @Column(nullable = false)
+    @JacksonXmlProperty(localName = "age")
     private Integer age;
 }

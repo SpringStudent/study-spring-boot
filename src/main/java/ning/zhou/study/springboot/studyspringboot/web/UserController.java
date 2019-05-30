@@ -1,8 +1,8 @@
 package ning.zhou.study.springboot.studyspringboot.web;
 
-import ning.zhou.study.springboot.studyspringboot.dao.UserDao;
 import ning.zhou.study.springboot.studyspringboot.domain.User;
 import ning.zhou.study.springboot.studyspringboot.service.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -75,5 +75,12 @@ public class UserController {
     @GetMapping("/getUserList2")
     public List<User> getUserList2() throws Exception {
         return userService.getUserList();
+    }
+
+    @PostMapping(value = "/formatUser",consumes = MediaType.APPLICATION_XML_VALUE, produces =MediaType.APPLICATION_XML_VALUE )
+    public User formatUser(@RequestBody User user){
+        user.setName("your name is"+user.getName());
+        user.setAge(user.getAge());
+        return user;
     }
 }
