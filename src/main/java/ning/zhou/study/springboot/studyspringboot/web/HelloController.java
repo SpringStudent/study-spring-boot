@@ -1,9 +1,12 @@
 package ning.zhou.study.springboot.studyspringboot.web;
 
+import com.alibaba.fastjson.JSON;
 import com.gysoft.sso.bean.GyBasicSession;
 import ning.zhou.study.springboot.studyspringboot.aspect.RateLimit;
 import ning.zhou.study.springboot.studyspringboot.matrix.Matrix;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * @author 周宁
@@ -45,5 +48,9 @@ public class HelloController extends GyBasicSession {
         System.out.println(matrix);
     }
 
+    @PostMapping("/mapParam")
+    public void mapParam(@RequestBody Map map){
+        System.out.println(JSON.toJSONString(map));
+    }
 
 }

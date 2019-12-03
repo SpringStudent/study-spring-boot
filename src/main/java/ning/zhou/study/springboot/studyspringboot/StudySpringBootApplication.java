@@ -1,14 +1,15 @@
 package ning.zhou.study.springboot.studyspringboot;
 
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubboConfig;
+import io.github.springstudent.core.EnableDubboSwagger;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -19,6 +20,8 @@ import javax.sql.DataSource;
 @EnableScheduling
 @EnableCaching
 @EnableAsync
+@EnableDubbo
+@EnableDubboSwagger(classPackage = "ning.zhou.study.springboot.studyspringboot.web")
 public class StudySpringBootApplication {
 
     public static void main(String[] args) {
