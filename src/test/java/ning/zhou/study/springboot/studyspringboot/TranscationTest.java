@@ -1,5 +1,6 @@
 package ning.zhou.study.springboot.studyspringboot;
 
+import ning.zhou.study.springboot.studyspringboot.dao.TbEnumTestDao;
 import ning.zhou.study.springboot.studyspringboot.dao.UserDao;
 import ning.zhou.study.springboot.studyspringboot.domain.User;
 import org.junit.Test;
@@ -20,6 +21,8 @@ public class TranscationTest {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private TbEnumTestDao tbEnumTestDao;
 
     @Test
     @Transactional
@@ -28,5 +31,10 @@ public class TranscationTest {
         userDao.save(new User(5L,"wang",29));
         userDao.save(new User(6L,"cheng",29));
         userDao.save(new User(7L,"dddddddddd",29));
+    }
+
+    @Test
+    public void test2() throws Exception {
+        System.out.println(tbEnumTestDao.queryAll());
     }
 }

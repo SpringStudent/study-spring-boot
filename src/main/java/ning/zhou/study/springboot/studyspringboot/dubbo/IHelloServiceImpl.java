@@ -1,6 +1,7 @@
 package ning.zhou.study.springboot.studyspringboot.dubbo;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import ning.zhou.study.springboot.studyspringboot.domain.User;
 import org.springframework.stereotype.Component;
 
 /**
@@ -34,5 +35,14 @@ public class IHelloServiceImpl implements IHelloService {
     @Override
     public String halou() {
         return "{map}";
+    }
+
+    @Override
+    public User user() {
+        User user = new User();
+        user.setAge(22);
+        user.setName("周宁");
+        user.setId(1l);
+        return user;
     }
 }

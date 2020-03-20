@@ -1,5 +1,7 @@
 package ning.zhou.study.springboot.studyspringboot.dubbo;
 
+import ning.zhou.study.springboot.studyspringboot.domain.User;
+
 /**
  * @author 周宁
  */
@@ -14,5 +16,7 @@ public interface IHelloService {
     String testsd();
 
     String halou();
+
+    User user();
 
 }

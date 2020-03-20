@@ -33,5 +33,4 @@ public class GlobalExceptionHandler {
     public Result<Object> myExceptionHandler(HttpServletRequest req, Exception e) throws Exception {
         return Result.fail(e.getMessage());
     }
-
 }
